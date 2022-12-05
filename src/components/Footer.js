@@ -4,17 +4,17 @@ export default function Footer (props){
 
     const corBotao = ["#FF3030", "#FF922E", "#2FBE34"]
     return (
-        <FooterConcluido>
-        <ContainerButtons>
+        <FooterContainer>
+        <ContainerBotoes>
             <Botoes color={corBotao[0]} type="button" onClick={() => props.onClick("Não lembrei")}>Não lembrei</Botoes>
             <Botoes color={corBotao[1]} type="button" onClick={() => props.onClick("Quase não lembrei")}>Quase não lembrei</Botoes>
             <Botoes color={corBotao[2]} type="button" onClick={() => props.onClick("Zap!")}>Zap!</Botoes>
-        </ContainerButtons>
-        <TextPerguntaFechadaP>0/8 CONCLUÍDOS</TextPerguntaFechadaP>
-    </FooterConcluido>
+        </ContainerBotoes>
+        <TextPerguntaFechadaP>{props.closedQuestions.filter((n)=>n!==undefined).length}/{props.closedQuestions.length} CONCLUÍDOS</TextPerguntaFechadaP>
+    </FooterContainer>
     )
 }
-const FooterConcluido = styled.div
+const FooterContainer = styled.div
     `width: 100%;
 min-height: 50px;
 background-color: #FFFFFF;
@@ -38,7 +38,7 @@ font-weight: 400;
 font-size: 18px;
 line-height: 22px;
 `
-const ContainerButtons = styled.div
+const ContainerBotoes = styled.div
     `
 display: flex;
 width: 80%;
